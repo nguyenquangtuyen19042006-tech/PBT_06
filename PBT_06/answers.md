@@ -103,3 +103,67 @@
 * `.container-md` → mobile full width, desktop gọn lại.
 
 
+# Câu C1 — Tùy biến Bootstrap
+
+## Đổi màu `$primary` sang `#E63946`
+
+### Quy trình
+
+1. Cài Bootstrap bằng npm
+
+```bash id="7zj9y2"
+npm install bootstrap
+```
+
+2. Tạo file SCSS
+
+```scss id="m8k2wd"
+$primary: #E63946;
+
+@import "bootstrap/scss/bootstrap";
+```
+
+3. Compile SCSS → CSS bằng Sass
+
+```bash id="0a8h1m"
+sass style.scss style.css
+```
+
+4. Link file CSS mới vào HTML.
+
+---
+
+# Cần công cụ gì?
+
+* Node.js
+* npm
+* Sass (SCSS compiler)
+
+---
+
+# Tại sao không nên override trực tiếp?
+
+```css id="9yx8tx"
+.btn-primary{
+    background:red;
+}
+```
+
+## Vì:
+
+* Chỉ đổi riêng `.btn-primary`
+* Không đổi các component khác dùng `$primary`
+
+  * alert-primary
+  * bg-primary
+  * text-primary
+  * border-primary
+
+---
+
+# Dùng SASS variables tốt hơn vì:
+
+* Đồng bộ toàn bộ framework.
+* Dễ maintain.
+* Dễ đổi theme.
+* Bootstrap tự generate toàn bộ class theo màu mới.
